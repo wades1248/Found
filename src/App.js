@@ -15,7 +15,7 @@ class  App extends Component {
   }
   postItem = item => {
     this.setState({
-      alltItems: this.state.allItems.concat(item)})
+      allItems: this.state.allItems.concat(item)})
   }
   searchQuery = query =>{
     this.setState({
