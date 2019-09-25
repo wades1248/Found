@@ -82,16 +82,16 @@ class Post extends Component {
                 <form onSubmit={this.validateItem}>
                 <legend>Post an Item</legend>
                 <label>
-                    City
+                    City:
                     <input type="text" placeholder="Saint Paul" name="city" required maxLength="40"/>
                 </label>
                 <div className="error">{this.state.cityError}</div>
                 <label>
-                    Business
+                    Business:
                     <input type="text" placeholder='Business Name' name="business" required maxLength="40"/>
                 </label>
                 <div className="error">{this.state.businessError}</div>
-                <label>Item type
+                <label>Item type:
                     <select name="itemType" required>
                         <option>--</option>
                         <option>Credit Card</option>
@@ -103,7 +103,7 @@ class Post extends Component {
                     </select>
                 </label>
                 <div className="error">{this.state.typeError}</div>
-                <label>Description
+                <label>Description:
                     <input type="text" name="description" placeholder="Color, Size, etc" required maxLength="40"/>
                 </label>
                 <div className="error">{this.state.desError}</div>

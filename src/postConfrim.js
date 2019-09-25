@@ -11,7 +11,7 @@ class PostConfirm extends Component {
                     <h2>Thanks for Posting!</h2>
                     <p>Please save the following identification number in order 
                         to edit or delete this post in the future</p>
-                    <p>Confirmation Number:{this.props.item.confirmation}</p>
+                    <p>Confirmation Number:<br></br> {this.props.item.confirmation}</p>
                     <button onClick={this.close}>Close</button>
                 </div>
             </div>

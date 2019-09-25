@@ -35,7 +35,7 @@ class ItemLookup extends Component{
             <div>
                 <form onSubmit={this.onSubmit}>
                     <legend>Lookup Item</legend>
-                    <label>Confirmation Number
+                    <label>Confirmation Number: 
                         <input type ="text" placeholder="Confirmation Number" name='confirmation' required></input>
                     </label>
                     <button type="submit">Lookup</button>
