@@ -5,13 +5,16 @@ import Welcome from './welcome';
 import Post from './addItem';
 import Search from './search';
 import About from './about';
+import ItemLookup from './itemLookup'
 import dummyStore from './dummyStore'
 import './App.css';
+
 
 class  App extends Component {
   state ={
     allItems: dummyStore,
-    results: []
+    results: [],
+    lookupResults: null
   }
   postItem = item => {
     this.setState({
@@ -23,14 +26,31 @@ class  App extends Component {
     })
     console.log(query)
     const newResults = this.state.allItems.filter(x=> x.city.toLowerCase().includes(query.city) &&
-     x.itemType.toLocaleLowerCase().includes(query.itemType)&&
-     x.business.toLocaleLowerCase().includes(query.business)&&
-     (x.description.some(y => query.description.includes(y))===true || query.description[0] === "")
+      x.itemType.toLocaleLowerCase().includes(query.itemType)&&
+      x.business.toLocaleLowerCase().includes(query.business)&&
+      (x.description.some(y => query.description.includes(y))===true || query.description[0] === "")
      )
      
       this.setState({
         results: newResults
       })
+  }
+  onLookup = confirmation => {
+    const match= this.state.allItems.find(x => x.confirmation=== confirmation)
+    if(match === undefined){
+      this.setState({lookupResults: 'error'})
+    }else{
+      this.setState({lookupResults: match})
+    }
+  }
+  onDelete = confirmation => {
+    this.setState({
+      allItems: this.state.allItems.filter(x => x.confirmation !== confirmation)
+    })
+    this.clearLookup()
+  }
+  clearLookup = () => {
+    this.setState({lookupResults: null})
   }
   render(){
     return (
@@ -64,6 +84,17 @@ class  App extends Component {
             path ='/about'
             render = { () =>
               <About/>
+            }
+          />
+          <Route
+            path ='/lookup'
+            render = {()=>
+              <ItemLookup
+                lookupResults = {this.state.lookupResults}
+                onLookup = {this.onLookup}
+                onDelete = {this.onDelete}
+                clearLookup = {this.clearLookup}
+              />
             }
           />
         </div>

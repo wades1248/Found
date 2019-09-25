@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ItemCard from './itemCard'
 
 class Search extends Component{
     state= {
@@ -34,25 +35,11 @@ class Search extends Component{
         }
         
     }
-    results = this.props.results.map(x =>{
-        return(
-            <div className="resultsItem">
-                <h2>{x.business}</h2>
-                <p>{x.city}</p>
-                <p>{x.itemType}</p>
-                <p>Tags:{x.description.join(", ")}</p>
-            </div>
-        )
-    })
+    
     render(){
         const results = this.props.results.map(x =>{
             return(
-                <div className="resultsItem" key={this.props.results.indexOf(x)}>
-                    <h2>{x.business}</h2>
-                    <p>{x.city}</p>
-                    <p>{x.itemType}</p>
-                    <p>Tags: {x.description.join(", ")}</p>
-                </div>
+                <ItemCard item={x} key={x.confirmation}/>
             )
         })
         return(

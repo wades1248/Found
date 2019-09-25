@@ -6,6 +6,23 @@
   align-items: center;
   justify-content: center;
 }
+.popUp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px; 
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.098);
+}
+.confirmation{
+  display: block;
+  background-color: rgb(255, 255, 255);
+  z-index: 2;
+}
 .error{
   color: red;
 }
@@ -28,4 +45,7 @@ form{
 .nav Link{
   margin-left: 20px;
   display: block;
+}
+button{
+  background-color: aliceblue;
 }

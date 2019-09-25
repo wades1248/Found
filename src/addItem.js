@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import PostConfirm from './postConfrim'
+const uuidv1 = require('uuid/v1');
 
 class Post extends Component {
     state = {
         cityError: null,
         businessError: null,
-        desError: null
+        desError: null,
+        active: false,
+        activeItem: {}
     }
     validateItem = event => {
         this.setState({
@@ -15,10 +19,12 @@ class Post extends Component {
 
         })
         event.preventDefault()
+        const newID = uuidv1()
         const {city, business, itemType, description} = event.target
         const filterDescription = description.value.toLowerCase().split(' ').filter(
             x=> x!== 'a' && x!=='an' && x!== 'the' && x !=='with' && x!=='and')
         const item = {
+            confirmation: newID,
             city: city.value,
             business: business.value,
             itemType: itemType.value,
@@ -48,9 +54,29 @@ class Post extends Component {
         }
         else{
             this.props.addItem(item)
+            this.setState({
+                active: true,
+                activeItem: item
+            })
+            event.target.reset()
         }
     }
+    onClose= () => {
+        this.setState({
+            active: false,
+            activeItem: {}
+        })
+    }
     render(){
+        function showConfirmation(state, close)  {
+            if(state.active === true){
+                return(
+                    <PostConfirm item={state.activeItem} onClose={close}/>
+                )
+            }else{
+                return null
+            }
+        }
         return(
             <div className="input" id="input">
                 <form onSubmit={this.validateItem}>
@@ -83,6 +109,7 @@ class Post extends Component {
                 <div className="error">{this.state.desError}</div>
                 <button type="submit">Post</button>
                 </form>
+                {showConfirmation(this.state, this.onClose)}
             </div>
         )
     }

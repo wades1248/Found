@@ -9,6 +9,7 @@ class NavBar extends Component{
                 <Link to='/about'>About</Link>
                 <Link to='/search'>Find an Item</Link>
                 <Link to='/post'>Post an Item</Link>
+                <Link to='/lookup'>Lookup a Post</Link>
             </div>
         )
     }
