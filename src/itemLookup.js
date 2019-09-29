@@ -5,8 +5,8 @@ class ItemLookup extends Component{
         event.preventDefault()
         this.props.clearLookup()
         const {confirmation} = event.target
-        console.log(confirmation.value)
         this.props.onLookup(confirmation.value)
+        event.target.reset()
     }
     onDelete = () => {
         this.props.onDelete(this.props.lookupResults.confirmation)
@@ -23,9 +23,10 @@ class ItemLookup extends Component{
                 return(
                     <div>
                         <h2>{results.business}</h2>
+                        <p>{results.phone}</p>
                         <p>{results.city}</p>
-                        <p>{results.itemType}</p>
-                        <p>Tags: {results.description.join(', ')}</p>
+                        <p>{results.itemtype}</p>
+                        <p>Tags: {results.description}</p>
                         <button onClick={onDelete}>Delete</button>
                     </div>
                 )

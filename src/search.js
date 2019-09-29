@@ -5,12 +5,14 @@ class Search extends Component{
     state= {
         cityError: null,
         typeError: null,
+        clicked: false
     }
     validateSearch= event=> {
         event.preventDefault()
         this.setState({
             cityError: null,
-            typeError: null
+            typeError: null, 
+            clicked: true
         })
         const {city, business, itemType, description} = event.target
         const filterDescription = description.value.toLowerCase().split(' ').filter(
@@ -32,16 +34,28 @@ class Search extends Component{
             })
         }else{
             this.props.searchQuery(query)
+            event.target.reset()
         }
         
     }
-    
+    componentDidMount(){
+        //this.props.resetResults()
+    }
     render(){
-        const results = this.props.results.map(x =>{
-            return(
-                <ItemCard item={x} key={x.confirmation}/>
-            )
-        })
+        function showResults(results, state, onDelete){
+            const solution =results.map(x =>{
+                return(
+                    <ItemCard item={x} key={x.confirmation} onDelete={onDelete}/>
+                )}
+            ) 
+            if(state.clicked===false){
+                return null
+            }else if(results.length === 0){
+                return <p>Sorry, your serach did not return any results at this time</p>
+            }else{
+                return solution
+            }
+        }
         return(
             <div className="search" id="search">
                 <form onSubmit={this.validateSearch}>
@@ -73,7 +87,7 @@ class Search extends Component{
                     <div className="error">{this.state.error}</div>
                     <button type="submit">Search</button>
                 </form>
-                <div className="searchResults">{results}</div>
+                <div className="searchResults">{showResults(this.props.results, this.state, this.props.onDelete)}</div>
             </div>
         )
     }

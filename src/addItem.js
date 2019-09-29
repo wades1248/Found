@@ -20,14 +20,15 @@ class Post extends Component {
         })
         event.preventDefault()
         const newID = uuidv1()
-        const {city, business, itemType, description} = event.target
+        const {city, business, phone, itemtype, description} = event.target
         const filterDescription = description.value.toLowerCase().split(' ').filter(
-            x=> x!== 'a' && x!=='an' && x!== 'the' && x !=='with' && x!=='and')
+            x=> x!== 'a' && x!=='an' && x!== 'the' && x !=='with' && x!=='and').join(', ')
         const item = {
             confirmation: newID,
             city: city.value,
             business: business.value,
-            itemType: itemType.value,
+            phone: phone.value,
+            itemtype: itemtype.value,
             description: filterDescription
         }
         const testCity = item.city.trim()
@@ -87,12 +88,16 @@ class Post extends Component {
                 </label>
                 <div className="error">{this.state.cityError}</div>
                 <label>
+                    Phone:
+                    <input type='tel' placeholder='555-555-5555' name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+                </label>
+                <label>
                     Business:
                     <input type="text" placeholder='Business Name' name="business" required maxLength="40"/>
                 </label>
                 <div className="error">{this.state.businessError}</div>
                 <label>Item type:
-                    <select name="itemType" required>
+                    <select name="itemtype" required>
                         <option>--</option>
                         <option>Credit Card</option>
                         <option>Wallet</option>
