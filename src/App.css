@@ -77,6 +77,10 @@ legend{
   text-decoration: underline;
   text-decoration-color: orange;
 }
+h1, legend{
+  font-family: 'Righteous', cursive;
+  
+}
 label{
   display: flex;
   margin-bottom: 10px;
