@@ -32,8 +32,9 @@ class NavBar extends Component{
         }
         return(
             <div className="nav">
+                <Link to='/' className="menuLink"><h1>Found</h1></Link>
                 <div className="bigMenu">
-                    <Link to='/' className="menuLink">Found</Link>
+                    <Link to='/' className="menuLink">Home</Link>
                     <Link to='/about' className="menuLink">About</Link>
                     <Link to='/search' className="menuLink">Find an Item</Link>
                     <Link to='/post' className="menuLink">Post an Item</Link>

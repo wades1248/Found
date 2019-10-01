@@ -54,6 +54,7 @@ class  App extends Component {
       })
   }
   onLookup = confirmation => {
+    this.clearLookup()
     const match= this.state.allItems.find(x => x.confirmation=== confirmation)
     if(match === undefined){
       this.setState({lookupResults: 'error'})

@@ -39,7 +39,7 @@ class Search extends Component{
         
     }
     componentDidMount(){
-        //this.props.resetResults()
+        this.props.resetResults()
     }
     render(){
         function showResults(results, state, onDelete){
@@ -57,8 +57,8 @@ class Search extends Component{
             }
         }
         return(
-            <div className="search" id="search">
-                <form onSubmit={this.validateSearch}>
+            <div  id="search">
+                <form onSubmit={this.validateSearch} className="search">
                     <legend>Find an Item</legend>
                     <label>
                         City:
