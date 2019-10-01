@@ -32,7 +32,7 @@ class NavBar extends Component{
         }
         return(
             <div className="nav">
-                <div className="icon"><img alt='maginifying glass icon' src="/src/newfound-icon.png"/></div>
+                <div className="icon"><img alt='maginifying glass icon' src="https://github.com/wades1248/Found/blob/master/src/newfound-icon%20.png?raw=true"/></div>
                 <Link to='/' className="menuLink"><h1>Found</h1></Link>
                 <div className="bigMenu">
                     <Link to='/' className="menuLink">Home</Link>

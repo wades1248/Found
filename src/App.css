@@ -79,7 +79,7 @@ legend{
 }
 h1, legend{
   font-family: 'Righteous', cursive;
-  
+
 }
 label{
   display: flex;
@@ -115,10 +115,18 @@ select{
   cursor: pointer;
 
 }
+.icon{
+  display: block;
+  margin-left: 20px;
+}
+img{
+  display: block;
+  max-height: 30px;
+}
 .nav h1{
   margin-top: auto;
   margin-bottom: 5px;
-  margin-left: 20px;
+  margin-left: 0px;
   color: rgb(43, 121, 184);
 }
 button{
