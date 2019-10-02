@@ -18,7 +18,6 @@ body{
 .about, .input, .resultsItem, .search, .lookup, .confirmation, .landing{
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  margin-top: 10px;
   max-width: 300px;
   margin-right: auto;
   margin-left: auto;
