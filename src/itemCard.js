@@ -31,17 +31,19 @@ class ItemCard extends Component {
         function displayConfirm(state, handleSubmit, showInput){
             if(state.active===true){
                 return(
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            Cofirmation Number:
-                            <input type='text' name='input' required/>
-                        </label>
-                        <p className="error">{state.error}</p>
-                        <div className="itemsButtons">
-                            <button type='submit'>Submit</button>
-                            <button onClick={showInput}>Close</button>
-                        </div>
-                    </form>
+                    <div className="popUp">
+                        <form onSubmit={handleSubmit} className="confirmation">
+                            <label>
+                                Cofirmation Number:
+                                <input type='text' name='input' required/>
+                            </label>
+                            <p className="error">{state.error}</p>
+                            <div className="itemsButtons">
+                                <button type='submit'>Submit</button>
+                                <button onClick={showInput}>Close</button>
+                            </div>
+                        </form>
+                    </div>
                 )
             }else{
                 return(null)

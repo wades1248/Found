@@ -20,7 +20,7 @@ class ItemLookup extends Component{
                 return null
             }else if(results === 'error'){
                 return(
-                    <p>Item Not Found</p>
+                    <p className="shout">Item Not Found</p>
                 )
             }else{
                 return(
