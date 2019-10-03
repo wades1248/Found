@@ -51,7 +51,7 @@ class Search extends Component{
             if(state.clicked===false){
                 return null
             }else if(results.length === 0){
-                return <p>Sorry, your serach did not return any results at this time</p>
+                return <p className="shout">Sorry, your search did not return any results at this time.</p>
             }else{
                 return solution
             }
