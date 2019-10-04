@@ -61,7 +61,7 @@ class Search extends Component{
                 <form onSubmit={this.validateSearch} className="search">
                     <legend>Find an Item</legend>
                     <label>
-                        City:
+                        *City:
                         <input type="text" placeholder="Saint Paul" name="city" required maxLength="40"/>
                     </label>
                     <div className="error">{this.state.cityError}</div>
@@ -69,7 +69,7 @@ class Search extends Component{
                         Business:
                         <input type="text" placeholder='Business Name' name="business" maxLength="40"/>
                     </label>
-                    <label>Item type:
+                    <label>*Item type:
                     <select name="itemType">
                         <option>--</option>
                         <option>Credit Card</option>
@@ -84,6 +84,7 @@ class Search extends Component{
                     <label>Description:
                         <input type="text" placeholder="Color, Size, etc" name="description" maxLength="40"/>
                     </label>
+                    <p>*Indicates a Required Field</p>
                     <div className="error">{this.state.error}</div>
                     <button type="submit">Search</button>
                 </form>
